@@ -10,7 +10,7 @@
     "autoload": {
         "classmap": [],
         "psr-4": {
-            "Package\\": "src/app/"
+            "VCComponent\\Laravel\\Geography\\": "src/app/"
         }
     },
     "autoload-dev": {
@@ -29,7 +29,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Package\\Providers\\PackageServiceProvider"
+                "VCComponent\\Laravel\\Geography\\Providers\\GeographyServiceProvider"
             ]
         }
     },
