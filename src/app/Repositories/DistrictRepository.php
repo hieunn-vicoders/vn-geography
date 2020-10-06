@@ -1,6 +1,6 @@
 <?php
 
-namespace HaiCS\Laravel\Generator\Repositories;
+namespace VCComponent\Laravel\Geography\Repositories;
 
 use Prettus\Repository\Contracts\RepositoryInterface;
 

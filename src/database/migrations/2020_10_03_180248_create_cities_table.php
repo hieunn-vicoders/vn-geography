@@ -19,7 +19,7 @@ class CreateCitiesTable extends Migration
             $table->text('slug');
             $table->string('type');
             $table->string('status')->default(1);
-            $table->string('local');
+            $table->string('area')->nullable();
             $table->string('thumbnail')->nullable();
             $table->longText('content')->nullable();
             $table->timestamps();

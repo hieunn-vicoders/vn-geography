@@ -1,6 +1,6 @@
 <?php
 
-namespace HaiCS\Laravel\Geography\Providers;
+namespace VCComponent\Laravel\Geography\Providers;
 
 use Illuminate\Support\ServiceProvider;
 

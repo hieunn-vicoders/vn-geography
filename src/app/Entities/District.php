@@ -1,6 +1,6 @@
 <?php
 
-namespace HaiCS\Laravel\Generator\Entities;
+namespace VCComponent\Laravel\Geography\Entities;
 
 use Illuminate\Database\Eloquent\Model;
 

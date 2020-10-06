@@ -1,9 +1,9 @@
 <?php
 
-namespace HaiCS\Laravel\Generator\Repositories;
+namespace VCComponent\Laravel\Geography\Repositories;
 
-use HaiCS\Laravel\Generator\Entities\Ward;
-use HaiCS\Laravel\Generator\Repositories\WardRepository;
+use VCComponent\Laravel\Geography\Entities\Ward;
+use VCComponent\Laravel\Geography\Repositories\WardRepository;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Prettus\Repository\Eloquent\BaseRepository;
 
