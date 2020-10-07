@@ -1,6 +1,6 @@
 <?php
 
-namespace HaiCS\Laravel\Generator\Transformers;
+namespace VCComponent\Laravel\Geography\Transformers;
 
 use League\Fractal\TransformerAbstract;
 
