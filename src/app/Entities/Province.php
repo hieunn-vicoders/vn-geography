@@ -4,7 +4,7 @@ namespace VCComponent\Laravel\Geography\Entities;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Ward extends Model
+class Province extends Model
 {
     const STATUS_PENDING = 2;
     const STATUS_ACTIVE = 1;
@@ -18,8 +18,8 @@ class Ward extends Model
         'content',
     ];
 
-    public function district()
+    public function districts()
     {
-        return $this->belongsTo(District::class, 'district_id');
+        return $this->hasMany(District::class, 'city_id');
     }
 }

@@ -1,7 +1,7 @@
 <?php
 
 use Faker\Generator;
-use HaiCS\Laravel\Generator\Entities\District;
+use VCComponent\Laravel\Geography\Entities\District;
 
 $factory->define(District::class, function (Generator $faker) {
     return [

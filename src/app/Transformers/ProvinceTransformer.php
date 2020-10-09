@@ -4,7 +4,7 @@ namespace VCComponent\Laravel\Geography\Transformers;
 
 use League\Fractal\TransformerAbstract;
 
-class CityTransformer extends TransformerAbstract
+class ProvinceTransformer extends TransformerAbstract
 {
     protected $availableIncludes = [];
 

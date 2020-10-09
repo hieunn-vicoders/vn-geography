@@ -3,15 +3,20 @@
 namespace VCComponent\Laravel\Geography\Http\Controllers\Web;
 
 use Illuminate\Routing\Controller as BaseController;
-use VCComponent\Laravel\Geography\Contracts\ViewCityListControllerInterface;
+use VCComponent\Laravel\Geography\Contracts\ViewDistrictControllerInterface;
 use Illuminate\Http\Request;
 
 
-class CityListController extends BaseController implements ViewCityListControllerInterface
+class DistrictController extends BaseController implements ViewDistrictControllerInterface
 {
     public function __construct()
     {
         $this->middleware('example.middleware', ['except' => []]);
+    }
+
+    public function show($slug, Request $request)
+    {
+
     }
 
     public function index(Request $request)

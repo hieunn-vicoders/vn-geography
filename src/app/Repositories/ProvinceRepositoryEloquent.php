@@ -2,15 +2,15 @@
 
 namespace VCComponent\Laravel\Geography\Repositories;
 
-use VCComponent\Laravel\Geography\Entities\City;
-use VCComponent\Laravel\Geography\Repositories\CityRepository;
+use VCComponent\Laravel\Geography\Entities\Province;
+use VCComponent\Laravel\Geography\Repositories\ProvinceRepository;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Prettus\Repository\Eloquent\BaseRepository;
 
 /**
  * Class AccountantRepositoryEloquent.
  */
-class CityRepositoryEloquent extends BaseRepository implements CityRepository
+class ProvinceRepositoryEloquent extends BaseRepository implements ProvinceRepository
 {
     /**
      * Specify Model class name
@@ -19,7 +19,7 @@ class CityRepositoryEloquent extends BaseRepository implements CityRepository
      */
     public function model()
     {
-        return City::class;
+        return Province::class;
     }
 
     public function getEntity()

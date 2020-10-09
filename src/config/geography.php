@@ -5,13 +5,13 @@ return [
     'namespace' => env('GEOGRAPHY_COMPONENT_NAMESPACE', ''),
 
     'models' => [
-        'city' => VCComponent\Laravel\Geography\Entities\City::class,
+        'province' => VCComponent\Laravel\Geography\Entities\Province::class,
         'district' => VCComponent\Laravel\Geography\Entities\District::class,
         'ward' => VCComponent\Laravel\Geography\Entities\Ward::class,
     ],
 
     'transformers' => [
-        'city' => VCComponent\Laravel\Geography\Transformers\CityTransformer::class,
+        'province' => VCComponent\Laravel\Geography\Transformers\ProvinceTransformer::class,
         'district' => VCComponent\Laravel\Geography\Transformers\DistrictTransformer::class,
         'ward' => VCComponent\Laravel\Geography\Transformers\WardTransformer::class,
     ],

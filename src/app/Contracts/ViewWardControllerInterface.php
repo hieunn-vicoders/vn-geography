@@ -4,7 +4,8 @@ namespace VCComponent\Laravel\Geography\Contracts;
 
 use Illuminate\Http\Request;
 
-interface ViewWardListControllerInterface
+interface ViewWardControllerInterface
 {
+    public function show($id, Request $request);
     public function index(Request $request);
 }

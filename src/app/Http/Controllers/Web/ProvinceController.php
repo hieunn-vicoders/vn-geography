@@ -3,11 +3,10 @@
 namespace VCComponent\Laravel\Geography\Http\Controllers\Web;
 
 use Illuminate\Routing\Controller as BaseController;
-use VCComponent\Laravel\Geography\Contracts\ViewWardDetailControllerInterface;
+use VCComponent\Laravel\Geography\Contracts\ViewProvinceControllerInterface;
 use Illuminate\Http\Request;
 
-
-class WardDetailController extends BaseController implements ViewWardDetailControllerInterface
+class ProvinceController extends BaseController implements ViewProvinceControllerInterface
 {
     public function __construct()
     {
@@ -15,6 +14,11 @@ class WardDetailController extends BaseController implements ViewWardDetailContr
     }
 
     public function show($slug, Request $request)
+    {
+
+    }
+
+    public function index(Request $request)
     {
 
     }

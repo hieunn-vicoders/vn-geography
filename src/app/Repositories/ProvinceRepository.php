@@ -7,7 +7,7 @@ use Prettus\Repository\Contracts\RepositoryInterface;
 /**
  * Interface Repository.
  */
-interface CityRepository extends RepositoryInterface
+interface ProvinceRepository extends RepositoryInterface
 {
     //
 }

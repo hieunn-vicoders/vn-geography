@@ -1,7 +1,7 @@
 <?php
 
 use Faker\Generator;
-use HaiCS\Laravel\Generator\Entities\Ward;
+use VCComponent\Laravel\Geography\Entities\Ward;
 
 $factory->define(Ward::class, function (Generator $faker) {
     return [
