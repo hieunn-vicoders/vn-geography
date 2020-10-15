@@ -18,6 +18,7 @@ class Ward extends Model
     protected $fillable = [
         'name',
         'type',
+        'district_id'
     ];
 
     public function district()

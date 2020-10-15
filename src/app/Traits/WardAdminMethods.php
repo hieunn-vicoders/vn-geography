@@ -2,19 +2,20 @@
 
 namespace VCComponent\Laravel\Geography\Traits;
 
+use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use VCComponent\Laravel\Geography\Events\WardCreatedByAdminEvent;
 use VCComponent\Laravel\Geography\Events\WardDeletedEvent;
 use VCComponent\Laravel\Geography\Events\WardUpdatedByAdminEvent;
-use VCComponent\Laravel\Geography\Repositories\DistrictRepository;
+use VCComponent\Laravel\Geography\Repositories\WardRepository;
 use VCComponent\Laravel\Geography\Transformers\WardTransformer;
 use VCComponent\Laravel\Vicoders\Core\Exceptions\NotFoundException;
 use VCComponent\Laravel\Vicoders\Core\Exceptions\PermissionDeniedException;
 
 trait WardAdminMethods
 {
-    public function __construct(DistrictRepository $repository, Request $request)
+    public function __construct(WardRepository $repository, Request $request)
     {
         $this->repository = $repository;
         $this->entity     = $repository->getEntity();
@@ -145,7 +146,7 @@ trait WardAdminMethods
         $data         = $request->all();
         $ward = $this->repository->update($data, $id);
         $ward->save();
-        
+
         event(new WardUpdatedByAdminEvent($ward));
 
         return $this->response->item($ward, new $this->transformer);
