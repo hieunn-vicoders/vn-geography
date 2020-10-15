@@ -37,8 +37,6 @@ trait ProvinceAdminMethods
     public function index(Request $request)
     {
         $query = $this->entity;
-
-        // $query = $this->applyQueryScope($query, 'type', $this->type);
         $query = $this->applyConstraintsFromRequest($query, $request);
         $query = $this->applySearchFromRequest($query, ['name'], $request);
         $query = $this->applyOrderByFromRequest($query, $request);
@@ -51,7 +49,7 @@ trait ProvinceAdminMethods
             $query = $query->where('status', $request->get('status'));
         }
 
-        $per_page   = $request->has('per_page') ? (int) $request->get('per_page') : 15;
+        $per_page  = $request->has('per_page') ? (int) $request->get('per_page') : 15;
         $provinces = $query->paginate($per_page);
 
         if ($request->has('includes')) {
@@ -92,7 +90,7 @@ trait ProvinceAdminMethods
     {
         $province = $this->repository->findWhere(['id' => $id])->first();
         if (!$province) {
-            throw new Exception("Tỉnh hoặc thành phố này không tồn tại", 1);
+            throw new NotFoundException('Province');
         }
 
         if (config('geography.auth_middleware')['admin']['middleware']) {
@@ -120,9 +118,8 @@ trait ProvinceAdminMethods
             }
         }
 
-        $data         = $request->all();
+        $data     = $request->all();
         $province = $this->repository->create($data);
-        $province->save();
 
         event(new ProvinceCreatedByAdminEvent($province));
 
@@ -133,7 +130,7 @@ trait ProvinceAdminMethods
     {
         $province = $this->repository->findWhere(['id' => $id])->first();
         if (!$province) {
-            throw new Exception("Tỉnh hoặc thành phố này không tồn tại", 1);
+            throw new NotFoundException('Province');
         }
 
         if (config('geography.auth_middleware')['admin']['middleware']) {
@@ -143,7 +140,7 @@ trait ProvinceAdminMethods
             }
         }
 
-        $data         = $request->all();
+        $data     = $request->all();
         $province = $this->repository->update($data, $id);
         $province->save();
 

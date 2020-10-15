@@ -77,7 +77,7 @@ trait DistrictFrontendMethods
     {
         $district = $this->repository->findWhere(['id' => $id])->first();
         if (!$district) {
-            throw new Exception("Quận hoặc huyện này không tồn tại", 1);
+            throw new NotFoundException('District');
         }
 
         if (config('geography.auth_middleware')['frontend']['middleware']) {
@@ -106,11 +106,7 @@ trait DistrictFrontendMethods
         }
 
         $data = $request->all();
-
-        $this->validator->isValid($data, 'RULE_ADMIN_CREATE');
-
         $district = $this->repository->create($data);
-        $district->save();
 
         event(new DistrictCreatedEvent($district));
 
@@ -119,9 +115,9 @@ trait DistrictFrontendMethods
 
     public function update(Request $request, $id)
     {
-        $district = $this->repository->findWhere(['id' => $id, 'type' => $this->type])->first();
+        $district = $this->repository->findWhere(['id' => $id])->first();
         if (!$district) {
-            throw new NotFoundException(title_case($this->type) . ' entity');
+            throw new NotFoundException('District');
         }
 
         if (config('geography.auth_middleware')['frontend']['middleware'] !== '') {
@@ -132,15 +128,9 @@ trait DistrictFrontendMethods
         }
 
         $data = $request->all();
-
-        $this->validator->isValid($data, 'RULE_ADMIN_UPDATE');
-
         $district = $this->repository->update($data, $id);
+        $district->save();
 
-        if ($request->has('status')) {
-            $district->status = $request->get('status');
-            $district->save();
-        }
 
         event(new DistrictUpdatedEvent($district));
 

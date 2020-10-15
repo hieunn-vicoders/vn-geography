@@ -77,7 +77,7 @@ trait ProvinceFrontendMethods
     {
         $province = $this->repository->findWhere(['id' => $id])->first();
         if (!$province) {
-            throw new Exception("Tỉnh hoặc thành phố này không tồn tại", 1);
+            throw new NotFoundException('Province');
         }
 
         if (config('geography.auth_middleware')['frontend']['middleware']) {
@@ -106,11 +106,7 @@ trait ProvinceFrontendMethods
         }
 
         $data = $request->all();
-
-        $this->validator->isValid($data, 'RULE_ADMIN_CREATE');
-
         $province = $this->repository->create($data);
-        $province->save();
 
         event(new ProvinceCreatedEvent($province));
 
@@ -119,9 +115,9 @@ trait ProvinceFrontendMethods
 
     public function update(Request $request, $id)
     {
-        $province = $this->repository->findWhere(['id' => $id, 'type' => $this->type])->first();
+        $province = $this->repository->findWhere(['id' => $id])->first();
         if (!$province) {
-            throw new NotFoundException(title_case($this->type) . ' entity');
+            throw new NotFoundException('Province');
         }
 
         if (config('geography.auth_middleware')['frontend']['middleware'] !== '') {
@@ -132,15 +128,9 @@ trait ProvinceFrontendMethods
         }
 
         $data = $request->all();
-
-        $this->validator->isValid($data, 'RULE_ADMIN_UPDATE');
-
         $province = $this->repository->update($data, $id);
+        $province->save();
 
-        if ($request->has('status')) {
-            $province->status = $request->get('status');
-            $province->save();
-        }
 
         event(new ProvinceUpdatedEvent($province));
 

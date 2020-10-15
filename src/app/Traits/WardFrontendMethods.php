@@ -77,7 +77,7 @@ trait WardFrontendMethods
     {
         $ward = $this->repository->findWhere(['id' => $id])->first();
         if (!$ward) {
-            throw new Exception("Xã hoặc phường này không tồn tại", 1);
+            throw new NotFoundException('Ward');
         }
 
         if (config('geography.auth_middleware')['frontend']['middleware']) {
@@ -106,11 +106,7 @@ trait WardFrontendMethods
         }
 
         $data = $request->all();
-
-        $this->validator->isValid($data, 'RULE_ADMIN_CREATE');
-
         $ward = $this->repository->create($data);
-        $ward->save();
 
         event(new WardCreatedEvent($ward));
 
@@ -119,9 +115,9 @@ trait WardFrontendMethods
 
     public function update(Request $request, $id)
     {
-        $ward = $this->repository->findWhere(['id' => $id, 'type' => $this->type])->first();
+        $ward = $this->repository->findWhere(['id' => $id])->first();
         if (!$ward) {
-            throw new NotFoundException(title_case($this->type) . ' entity');
+            throw new NotFoundException('District');
         }
 
         if (config('geography.auth_middleware')['frontend']['middleware'] !== '') {
@@ -132,15 +128,8 @@ trait WardFrontendMethods
         }
 
         $data = $request->all();
-
-        $this->validator->isValid($data, 'RULE_ADMIN_UPDATE');
-
         $ward = $this->repository->update($data, $id);
-
-        if ($request->has('status')) {
-            $ward->status = $request->get('status');
-            $ward->save();
-        }
+        $ward->save();
 
         event(new WardUpdatedEvent($ward));
 

@@ -37,8 +37,6 @@ trait DistrictAdminMethods
     public function index(Request $request)
     {
         $query = $this->entity;
-
-        // $query = $this->applyQueryScope($query, 'type', $this->type);
         $query = $this->applyConstraintsFromRequest($query, $request);
         $query = $this->applySearchFromRequest($query, ['name'], $request);
         $query = $this->applyOrderByFromRequest($query, $request);
@@ -51,7 +49,7 @@ trait DistrictAdminMethods
             $query = $query->where('status', $request->get('status'));
         }
 
-        $per_page   = $request->has('per_page') ? (int) $request->get('per_page') : 15;
+        $per_page  = $request->has('per_page') ? (int) $request->get('per_page') : 15;
         $districts = $query->paginate($per_page);
 
         if ($request->has('includes')) {
@@ -92,7 +90,7 @@ trait DistrictAdminMethods
     {
         $district = $this->repository->findWhere(['id' => $id])->first();
         if (!$district) {
-            throw new Exception("Quận hoặc huyện này không tồn tại", 1);
+            throw new NotFoundException('District');
         }
 
         if (config('geography.auth_middleware')['admin']['middleware']) {
@@ -120,9 +118,8 @@ trait DistrictAdminMethods
             }
         }
 
-        $data         = $request->all();
+        $data     = $request->all();
         $district = $this->repository->create($data);
-        $district->save();
 
         event(new DistrictCreatedByAdminEvent($district));
 
@@ -133,7 +130,7 @@ trait DistrictAdminMethods
     {
         $district = $this->repository->findWhere(['id' => $id])->first();
         if (!$district) {
-            throw new Exception("Quận hoặc huyện này không tồn tại", 1);
+            throw new NotFoundException('District');
         }
 
         if (config('geography.auth_middleware')['admin']['middleware']) {
@@ -143,7 +140,7 @@ trait DistrictAdminMethods
             }
         }
 
-        $data         = $request->all();
+        $data     = $request->all();
         $district = $this->repository->update($data, $id);
         $district->save();
 

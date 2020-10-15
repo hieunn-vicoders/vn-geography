@@ -51,8 +51,8 @@ trait WardAdminMethods
             $query = $query->where('status', $request->get('status'));
         }
 
-        $per_page   = $request->has('per_page') ? (int) $request->get('per_page') : 15;
-        $wards = $query->paginate($per_page);
+        $per_page = $request->has('per_page') ? (int) $request->get('per_page') : 15;
+        $wards    = $query->paginate($per_page);
 
         if ($request->has('includes')) {
             $transformer = new $this->transformer(explode(',', $request->get('includes')));
@@ -92,7 +92,7 @@ trait WardAdminMethods
     {
         $ward = $this->repository->findWhere(['id' => $id])->first();
         if (!$ward) {
-            throw new Exception("Phường hoặc xã này không tồn tại", 1);
+            throw new NotFoundException('Ward');
         }
 
         if (config('geography.auth_middleware')['admin']['middleware']) {
@@ -120,9 +120,8 @@ trait WardAdminMethods
             }
         }
 
-        $data         = $request->all();
+        $data = $request->all();
         $ward = $this->repository->create($data);
-        $ward->save();
 
         event(new WardCreatedByAdminEvent($ward));
 
@@ -133,7 +132,7 @@ trait WardAdminMethods
     {
         $ward = $this->repository->findWhere(['id' => $id])->first();
         if (!$ward) {
-            throw new Exception("Phường hoặc xã này không tồn tại", 1);
+            throw new NotFoundException('Ward');
         }
 
         if (config('geography.auth_middleware')['admin']['middleware']) {
@@ -143,7 +142,7 @@ trait WardAdminMethods
             }
         }
 
-        $data         = $request->all();
+        $data = $request->all();
         $ward = $this->repository->update($data, $id);
         $ward->save();
 
