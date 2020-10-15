@@ -119,14 +119,8 @@ trait DistrictAdminMethods
                 throw new PermissionDeniedException();
             }
         }
-        $data         = $request->all();
-        $data['slug'] = Str::slug($data['name']);
-        $district     = $this->repository->findWhere(['name' => $data['name'], 'type' => $data['type']])->first();
-        if ($district) {
-            throw new \Exception("", 1);
-        }
-        $this->validator->isValid($data, 'RULE_ADMIN_CREATE');
 
+        $data         = $request->all();
         $district = $this->repository->create($data);
         $district->save();
 
@@ -150,22 +144,8 @@ trait DistrictAdminMethods
         }
 
         $data         = $request->all();
-        $data['slug'] = Str::slug($data['name']);
-        $district     = $this->entity->where('id', '<>', $id)
-            ->where('name', $data['name'])
-            ->where('type', $data['type'])
-            ->first();
-        if ($district) {
-            throw new \Exception("", 1);
-        }
-        $this->validator->isValid($data, 'RULE_ADMIN_UPDATE');
-
         $district = $this->repository->update($data, $id);
-
-        if ($request->has('status')) {
-            $district->status = $request->get('status');
-            $district->save();
-        }
+        $district->save();
 
         event(new DistrictUpdatedByAdminEvent($district));
 

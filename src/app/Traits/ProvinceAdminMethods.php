@@ -119,6 +119,7 @@ trait ProvinceAdminMethods
                 throw new PermissionDeniedException();
             }
         }
+
         $data         = $request->all();
         $province = $this->repository->create($data);
         $province->save();

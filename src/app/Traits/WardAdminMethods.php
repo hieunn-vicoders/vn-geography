@@ -118,14 +118,8 @@ trait WardAdminMethods
                 throw new PermissionDeniedException();
             }
         }
-        $data         = $request->all();
-        $data['slug'] = Str::slug($data['name']);
-        $ward     = $this->repository->findWhere(['name' => $data['name'], 'type' => $data['type']])->first();
-        if ($ward) {
-            throw new \Exception("", 1);
-        }
-        $this->validator->isValid($data, 'RULE_ADMIN_CREATE');
 
+        $data         = $request->all();
         $ward = $this->repository->create($data);
         $ward->save();
 
@@ -149,24 +143,10 @@ trait WardAdminMethods
         }
 
         $data         = $request->all();
-        $data['slug'] = Str::slug($data['name']);
-        $province     = $this->entity->where('id', '<>', $id)
-            ->where('name', $data['name'])
-            ->where('type', $data['type'])
-            ->first();
-        if ($province) {
-            throw new \Exception("", 1);
-        }
-        $this->validator->isValid($data, 'RULE_ADMIN_UPDATE');
-
         $ward = $this->repository->update($data, $id);
-
-        if ($request->has('status')) {
-            $ward->status = $request->get('status');
-            $ward->save();
-        }
-
-        event(new WardUpdatedByAdminEvent($province));
+        $ward->save();
+        
+        event(new WardUpdatedByAdminEvent($ward));
 
         return $this->response->item($ward, new $this->transformer);
     }
