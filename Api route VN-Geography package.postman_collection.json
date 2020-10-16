@@ -1,0 +1,743 @@
+{
+	"info": {
+		"_postman_id": "fe7d0836-846f-4892-a4a3-38d7e758d875",
+		"name": "Api route VN-Geography package",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Admin",
+			"item": [
+				{
+					"name": "Provinces",
+					"item": [
+						{
+							"name": "localhost:8000/api/admin/provinces",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "1",
+										"value": "",
+										"type": "text"
+									},
+									{
+										"key": "",
+										"value": "1",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "localhost:8000/api/admin/provinces",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"admin",
+										"provinces"
+									]
+								},
+								"description": "Get all provinces exist."
+							},
+							"response": []
+						},
+						{
+							"name": "localhost:8000/api/admin/provinces/{{id}}",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": ""
+								},
+								"description": "Get a province existed in list provinces"
+							},
+							"response": []
+						},
+						{
+							"name": "localhost:8000/api/admin/provinces/list",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "1",
+										"value": "",
+										"type": "text"
+									},
+									{
+										"key": "",
+										"value": "1",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "localhost:8000/api/admin/provinces/list",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"admin",
+										"provinces",
+										"list"
+									]
+								},
+								"description": "Get list provinces"
+							},
+							"response": []
+						},
+						{
+							"name": "localhost:8000/api/admin/provinces",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "localhost:8000/api/admin/provinces",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"admin",
+										"provinces"
+									]
+								},
+								"description": "Create a new province"
+							},
+							"response": []
+						},
+						{
+							"name": "localhost:8000/api/admin/provinces/{{id}}",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"url": {
+									"raw": "localhost:8000/api/admin/provinces/{id}",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"admin",
+										"provinces",
+										"{id}"
+									]
+								},
+								"description": "Update a province"
+							},
+							"response": []
+						},
+						{
+							"name": "localhost:8000/api/admin/provinces/{{id}}/status",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"url": {
+									"raw": "localhost:8000/api/admin/provinces/{id}/status",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"admin",
+										"provinces",
+										"{id}",
+										"status"
+									]
+								},
+								"description": "Update status of a province"
+							},
+							"response": []
+						},
+						{
+							"name": "localhost:8000/api/admin/provinces/{{id}}",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "localhost:8000/api/admin/provinces/{id}",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"admin",
+										"provinces",
+										"{id}"
+									]
+								},
+								"description": "Delete a province existed"
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Districts",
+					"item": [
+						{
+							"name": "localhost:8000/api/admin/districts",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8000/api/admin/districts",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"admin",
+										"districts"
+									]
+								},
+								"description": "Get all districts exist."
+							},
+							"response": []
+						},
+						{
+							"name": "localhost:8000/api/admin/districts/{{id}}",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8000/api/admin/districts/{id}",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"admin",
+										"districts",
+										"{id}"
+									]
+								},
+								"description": "Get a district existed in list districts"
+							},
+							"response": []
+						},
+						{
+							"name": "localhost:8000/api/admin/districts/list",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "localhost:8000/api/admin/districts/list",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"admin",
+										"districts",
+										"list"
+									]
+								},
+								"description": "Get list districts"
+							},
+							"response": []
+						},
+						{
+							"name": "localhost:8000/api/admin/provinces",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "localhost:8000/api/admin/provinces",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"admin",
+										"provinces"
+									]
+								},
+								"description": "Create a new district"
+							},
+							"response": []
+						},
+						{
+							"name": "localhost:8000/api/admin/districts/{{id}}",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"url": {
+									"raw": "localhost:8000/api/admin/districts/{id}",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"admin",
+										"districts",
+										"{id}"
+									]
+								},
+								"description": "Update a district"
+							},
+							"response": []
+						},
+						{
+							"name": "localhost:8000/api/admin/districts/{{id}}/status",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"url": {
+									"raw": "localhost:8000/api/admin/districts/{id}/status",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"admin",
+										"districts",
+										"{id}",
+										"status"
+									]
+								},
+								"description": "Update status of a district"
+							},
+							"response": []
+						},
+						{
+							"name": "localhost:8000/api/admin/districts/{{id}}",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "localhost:8000/api/admin/districts/{id}",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"admin",
+										"districts",
+										"{id}"
+									]
+								},
+								"description": "Delete a district existed"
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Wards",
+					"item": [
+						{
+							"name": "localhost:8000/api/admin/wards",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8000/api/admin/wards",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"admin",
+										"wards"
+									]
+								},
+								"description": "Get all wards exist."
+							},
+							"response": []
+						},
+						{
+							"name": "localhost:8000/api/admin/wards/{{id}}",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8000/api/admin/wards/{id}",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"admin",
+										"wards",
+										"{id}"
+									]
+								},
+								"description": "Get a ward existed in list wards"
+							},
+							"response": []
+						},
+						{
+							"name": "localhost:8000/api/admin/wards/list",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "localhost:8000/api/admin/wards/list",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"admin",
+										"wards",
+										"list"
+									]
+								},
+								"description": "Get list wards"
+							},
+							"response": []
+						},
+						{
+							"name": "localhost:8000/api/admin/wards",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "localhost:8000/api/admin/wards",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"admin",
+										"wards"
+									]
+								},
+								"description": "Create a new ward"
+							},
+							"response": []
+						},
+						{
+							"name": "localhost:8000/api/admin/wards/{{id}}",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"url": {
+									"raw": "localhost:8000/api/admin/wards/{id}",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"admin",
+										"wards",
+										"{id}"
+									]
+								},
+								"description": "Update a ward"
+							},
+							"response": []
+						},
+						{
+							"name": "localhost:8000/api/admin/wards/{{id}}/status",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"url": {
+									"raw": "localhost:8000/api/admin/wards/{id}/status",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"admin",
+										"wards",
+										"{id}",
+										"status"
+									]
+								},
+								"description": "Update status of a ward"
+							},
+							"response": []
+						},
+						{
+							"name": "localhost:8000/api/admin/wards/{{id}}",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "localhost:8000/api/admin/wards/{id}",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"admin",
+										"wards",
+										"{id}"
+									]
+								},
+								"description": "Delete a ward existed"
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "37cedfae-dd62-4286-a102-c27d1bdfcb8a",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "40dd0cf2-4505-401a-ad4c-ff09c53a12cb",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Frontend",
+			"item": [
+				{
+					"name": "Provinces",
+					"item": [
+						{
+							"name": "localhost:8000/api/provinces",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8000/api/provinces",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"provinces"
+									]
+								},
+								"description": "Get all provinces exist."
+							},
+							"response": []
+						},
+						{
+							"name": "localhost:8000/api/provinces/{{id}}",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8000/api/provinces/{id}",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"provinces",
+										"{id}"
+									]
+								},
+								"description": "Get a province existed in list provinces"
+							},
+							"response": []
+						},
+						{
+							"name": "localhost:8000/api/provinces/list",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "localhost:8000/api/provinces/list",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"provinces",
+										"list"
+									]
+								},
+								"description": "Get list provinces"
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Districts",
+					"item": [
+						{
+							"name": "localhost:8000/api/districts",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8000/api/districts",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"districts"
+									]
+								},
+								"description": "Get all districts exist."
+							},
+							"response": []
+						},
+						{
+							"name": "localhost:8000/api/districts/{{id}}",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8000/api/districts/1",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"districts",
+										"1"
+									]
+								},
+								"description": "Get a district existed in list districts"
+							},
+							"response": []
+						},
+						{
+							"name": "localhost:8000/api/districts/list",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "localhost:8000/api/districts/list",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"districts",
+										"list"
+									]
+								},
+								"description": "Get list districts"
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Wards",
+					"item": [
+						{
+							"name": "localhost:8000/api/wards",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8000/api/wards",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"wards"
+									]
+								},
+								"description": "Get all wards exist."
+							},
+							"response": []
+						},
+						{
+							"name": "localhost:8000/api/wards/{{id}}",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8000/api/wards/{id}",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"wards",
+										"{id}"
+									]
+								},
+								"description": "Get a ward existed in list wards"
+							},
+							"response": []
+						},
+						{
+							"name": "localhost:8000/api/wards/list",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "localhost:8000/api/wards/list",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"wards",
+										"list"
+									]
+								},
+								"description": "Get list wards"
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
