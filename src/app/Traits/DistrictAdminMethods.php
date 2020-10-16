@@ -169,4 +169,25 @@ trait DistrictAdminMethods
 
         return $this->success();
     }
+
+    public function status(Request $request, $id)
+    {
+        if (config('geography.auth_middleware')['admin']['middleware']) {
+            $user = $this->getAuthenticatedUser();
+            if (!$this->entity->ableToUpdateItem($user, $id)) {
+                throw new PermissionDeniedException();
+            }
+        }
+
+        $district = $this->repository->findWhere(['id' => $id])->first();
+        if (!$district) {
+            throw new NotFoundException('District');
+        }
+
+        $data             = $request->all('status');
+        $district->status = $data['status'];
+        $district->save();
+
+        return $this->success();
+    }
 }

@@ -169,4 +169,25 @@ trait ProvinceAdminMethods
 
         return $this->success();
     }
+
+    public function status(Request $request, $id)
+    {
+        if (config('geography.auth_middleware')['admin']['middleware']) {
+            $user = $this->getAuthenticatedUser();
+            if (!$this->entity->ableToUpdateItem($user, $id)) {
+                throw new PermissionDeniedException();
+            }
+        }
+
+        $province = $this->repository->findWhere(['id' => $id])->first();
+        if (!$province) {
+            throw new NotFoundException('Province');
+        }
+
+        $data             = $request->all('status');
+        $province->status = $data['status'];
+        $province->save();
+
+        return $this->success();
+    }
 }

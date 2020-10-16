@@ -24,9 +24,9 @@ class DistrictTransformer extends TransformerAbstract
             'province'        => $model->province->name,
             'province type'   => $model->province->type,
             'province status' => $model->province->status,
-            'timestamps' => [
-                'created_at' => $model->created_at,
-                'updated_at' => $model->updated_at,
+            'timestamps'      => [
+                'created_at'  => $model->created_at,
+                'updated_at'  => $model->updated_at,
             ],
         ];
     }

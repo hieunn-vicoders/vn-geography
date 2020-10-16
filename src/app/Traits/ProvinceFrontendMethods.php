@@ -36,8 +36,6 @@ trait ProvinceFrontendMethods
     public function index(Request $request)
     {
         $query = $this->entity;
-
-        // $query = $this->applyQueryScope($query, 'type', $this->type);
         $query = $this->applyConstraintsFromRequest($query, $request);
         $query = $this->applySearchFromRequest($query, ['name'], $request);
         $query = $this->applyOrderByFromRequest($query, $request);
@@ -56,8 +54,6 @@ trait ProvinceFrontendMethods
 
     function list(Request $request) {
         $query = $this->entity;
-
-        // $query = $this->applyQueryScope($query, 'type', $this->type);
         $query = $this->applyConstraintsFromRequest($query, $request);
         $query = $this->applySearchFromRequest($query, ['name'], $request);
         $query = $this->applyOrderByFromRequest($query, $request);

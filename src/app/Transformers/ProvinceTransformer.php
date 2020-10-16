@@ -20,7 +20,7 @@ class ProvinceTransformer extends TransformerAbstract
             'name'           => $model->name,
             'type'           => $model->type,
             'status'         => $model->status,
-            'timestamps' => [
+            'timestamps'     => [
                 'created_at' => $model->created_at,
                 'updated_at' => $model->updated_at,
             ],

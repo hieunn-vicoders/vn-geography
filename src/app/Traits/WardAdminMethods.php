@@ -37,8 +37,6 @@ trait WardAdminMethods
     public function index(Request $request)
     {
         $query = $this->entity;
-
-        // $query = $this->applyQueryScope($query, 'type', $this->type);
         $query = $this->applyConstraintsFromRequest($query, $request);
         $query = $this->applySearchFromRequest($query, ['name'], $request);
         $query = $this->applyOrderByFromRequest($query, $request);
@@ -168,6 +166,27 @@ trait WardAdminMethods
         $this->repository->delete($id);
 
         event(new WardDeletedEvent());
+
+        return $this->success();
+    }
+
+    public function status(Request $request, $id)
+    {
+        if (config('geography.auth_middleware')['admin']['middleware']) {
+            $user = $this->getAuthenticatedUser();
+            if (!$this->entity->ableToUpdateItem($user, $id)) {
+                throw new PermissionDeniedException();
+            }
+        }
+
+        $ward = $this->repository->findWhere(['id' => $id])->first();
+        if (!$ward) {
+            throw new NotFoundException('Ward');
+        }
+
+        $data         = $request->all('status');
+        $ward->status = $data['status'];
+        $ward->save();
 
         return $this->success();
     }

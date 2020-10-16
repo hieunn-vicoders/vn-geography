@@ -26,8 +26,8 @@ trait WardFrontendMethods
             );
         }
 
-        if (isset(config('geography.transformers')['district'])) {
-            $this->transformer = config('geography.transformers.district');
+        if (isset(config('geography.transformers')['ward'])) {
+            $this->transformer = config('geography.transformers.ward');
         } else {
             $this->transformer = WardTransformer::class;
         }
@@ -36,8 +36,6 @@ trait WardFrontendMethods
     public function index(Request $request)
     {
         $query = $this->entity;
-
-        // $query = $this->applyQueryScope($query, 'type', $this->type);
         $query = $this->applyConstraintsFromRequest($query, $request);
         $query = $this->applySearchFromRequest($query, ['name'], $request);
         $query = $this->applyOrderByFromRequest($query, $request);
@@ -56,8 +54,6 @@ trait WardFrontendMethods
 
     function list(Request $request) {
         $query = $this->entity;
-
-        // $query = $this->applyQueryScope($query, 'type', $this->type);
         $query = $this->applyConstraintsFromRequest($query, $request);
         $query = $this->applySearchFromRequest($query, ['name'], $request);
         $query = $this->applyOrderByFromRequest($query, $request);
@@ -117,7 +113,7 @@ trait WardFrontendMethods
     {
         $ward = $this->repository->findWhere(['id' => $id])->first();
         if (!$ward) {
-            throw new NotFoundException('District');
+            throw new NotFoundException('Ward');
         }
 
         if (config('geography.auth_middleware')['frontend']['middleware'] !== '') {
