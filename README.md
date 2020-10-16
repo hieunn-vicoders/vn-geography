@@ -64,18 +64,6 @@ API_DEBUG=false
 
 ## Configuration
 
-### URL namespace
-
-To avoid duplication with your application's api endpoints, the package has a default namespace for its routes which is  `post-management`. For example:
-
-    {{url}}/api/vn-geography/admin/provinces
-    {{url}}/api/vn-geography/admin/districts
-    {{url}}/api/vn-geography/admin/wards
-
-You can modify the package url namespace to whatever you want by modifying the `GEOGRAPHY_COMPONENT_NAMESPACE` variable in `.env` file.
-
-    GEOGRAPHY_COMPONENT_NAMESPACE="your-namespace"
-
 ### Model and Transformer
 
 You can use your own model and transformer class by modifying the configuration file `config\geography.php`
@@ -223,51 +211,51 @@ The api endpoint should have these format:
 
 Province
 
-| Verb   | URI                                            |
-| ------ | ---------------------------------------------- |
-| GET    | /api/{namespace}/admin/provinces               |
-| GET    | /api/{namespace}/admin/provinces/{id}          |
-| POST   | /api/{namespace}/admin/provinces/list          |
-| POST   | /api/{namespace}/admin/provinces               |
-| PUT    | /api/{namespace}/admin/provinces/{id}          |
-| PUT    | /api/{namespace}/admin/provinces/{id}/status   |
-| DELETE | /api/{namespace}/admin/provinces/{id}          |
-| ----   | ----                                           |
-| GET    | /api/{namespace}/provinces                     |
-| GET    | /api/{namespace}/provinces/{id}                |
-| POST   | /api/{namespace}/provinces/list                |
+| Verb   | URI                                  |
+| ------ | -------------------------------------|
+| GET    | /api/admin/provinces                 |
+| GET    | /api/admin/provinces/{id}            |
+| POST   | /api/admin/provinces/list            |
+| POST   | /api/admin/provinces                 |
+| PUT    | /api/admin/provinces/{id}            |
+| PUT    | /api/admin/provinces/{id}/status     |
+| DELETE | /api/admin/provinces/{id}            |
+| ----   | ----                                 |
+| GET    | /api/provinces                       |
+| GET    | /api/provinces/{id}                  |
+| POST   | /api/provinces/list                  |
 
 District
 
-| Verb   | URI                                            |
-| ------ | ---------------------------------------------- |
-| GET    | /api/{namespace}/admin/districts               |
-| GET    | /api/{namespace}/admin/districts/{id}          |
-| POST   | /api/{namespace}/admin/districts/list          |
-| POST   | /api/{namespace}/admin/districts               |
-| PUT    | /api/{namespace}/admin/districts/{id}          |
-| PUT    | /api/{namespace}/admin/districts/{id}/status   |
-| DELETE | /api/{namespace}/admin/districts/{id}          |
-| ----   | ----                                           |
-| GET    | /api/{namespace}/districts                     |
-| GET    | /api/{namespace}/districts/{id}                |
-| POST   | /api/{namespace}/districts/list                |
+| Verb   | URI                                  |
+| ------ | -------------------------------------|
+| GET    | /api/admin/districts                 |
+| GET    | /api/admin/districts/{id}            |
+| POST   | /api/admin/districts/list            |
+| POST   | /api/admin/districts                 |
+| PUT    | /api/admin/districts/{id}            |
+| PUT    | /api/admin/districts/{id}/status     |
+| DELETE | /api/admin/districts/{id}            |
+| ----   | ----                                 |
+| GET    | /api/districts                       |
+| GET    | /api/districts/{id}                  |
+| POST   | /api/districts/list                  |
 
 Ward
 
-| Verb   | URI                                            |
-| ------ | ---------------------------------------------- |
-| GET    | /api/{namespace}/admin/wards                   |
-| GET    | /api/{namespace}/admin/wards/{id}              |
-| POST   | /api/{namespace}/admin/wards/list              |
-| POST   | /api/{namespace}/admin/wards                   |
-| PUT    | /api/{namespace}/admin/wards/{id}              |
-| PUT    | /api/{namespace}/admin/wards/{id}/status       |
-| DELETE | /api/{namespace}/admin/wards/{id}              |
-| ----   | ----                                           |
-| GET    | /api/{namespace}/wards                         |
-| GET    | /api/{namespace}/wards/{id}                    |
-| POST   | /api/{namespace}/wards/list                    |
+| Verb   | URI                                  |
+| ------ | -------------------------------------|
+| GET    | /api/admin/wards                     |
+| GET    | /api/admin/wards/{id}                |
+| POST   | /api/admin/wards/list                |
+| POST   | /api/admin/wards                     |
+| PUT    | /api/admin/wards/{id}                |
+| PUT    | /api/admin/wards/{id}/status         |
+| DELETE | /api/admin/wards/{id}                |
+| ----   | ----                                 |
+| GET    | /api/wards                           |
+| GET    | /api/wards/{id}                      |
+| POST   | /api/wards/list                      |
 
 
 
