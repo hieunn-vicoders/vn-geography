@@ -5,11 +5,13 @@
   - [Composer](#composer)
   - [Service Provider](#service-provider)
   - [Config and Migration](#config-and-migration)
+  - [Seeder](#seeder)
   - [Environment](#environment)
 - [Configuration](#configuration)
     - [URL namespace](#url-namespace)
     - [Model and Transformer](#model-and-transformer)
     - [Auth middleware](#auth-middleware)
+- [Routes](#routes)
     
     
     
@@ -49,6 +51,14 @@ Create tables:
 
 ```
 php artisan migrate
+```
+
+### Seeder
+
+Run the following command to seed your database
+
+```
+php artisan db:seed
 ```
 
 ### Environment
