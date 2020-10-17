@@ -29,6 +29,7 @@ class GeographyServiceProvider extends ServiceProvider
         $this->publishes([
             __DIR__ . '/../../config/geography.php' => config_path('geography.php'),
         ], 'config');
+
     }
 
     /**
@@ -42,6 +43,11 @@ class GeographyServiceProvider extends ServiceProvider
         $this->app->bind(DistrictRepository::class, DistrictRepositoryEloquent::class);
         $this->app->bind(WardRepository::class, WardRepositoryEloquent::class);
         $this->registerControllers();
+
+        include __DIR__ . '/../../database/seeds/DatabaseSeeder.php';
+        include __DIR__ . '/../../database/seeds/ProvincesTableSeeder.php';
+        include __DIR__ . '/../../database/seeds/DistrictsTableSeeder.php';
+        include __DIR__ . '/../../database/seeds/WardsTableSeeder.php';
     }
 
     private function registerControllers()
